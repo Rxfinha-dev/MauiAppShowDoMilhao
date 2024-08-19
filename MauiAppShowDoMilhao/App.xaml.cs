@@ -4,7 +4,7 @@ namespace MauiAppShowDoMilhao
 {
     public partial class App : Application
     {
-        List<Pergunta> perguntas_faceis = new()
+       static List<Pergunta> perguntas_faceis = new()
         {
 
     new Pergunta
@@ -250,7 +250,7 @@ namespace MauiAppShowDoMilhao
 
         };
 
-        List<Pergunta> perguntas_medias = new()
+       static List<Pergunta> perguntas_medias = new()
         {
             new Pergunta
             {
@@ -495,7 +495,7 @@ namespace MauiAppShowDoMilhao
 
         };
 
-        List<Pergunta> perguntas_dificeis = new()
+       static List<Pergunta> perguntas_dificeis = new()
         {
             new Pergunta
             {
@@ -740,8 +740,33 @@ namespace MauiAppShowDoMilhao
 
         };
 
+        public static Pergunta getRandomPerguntaFacil()
+        {
+            Random r = new Random();
 
-    public App()
+            int sorteado = r.Next(1, 20);
+
+            return perguntas_faceis[sorteado];
+        }
+        public static Pergunta getRandomPerguntaMedia()
+        {
+            Random r = new Random();
+
+            int sorteado = r.Next(1, 20);
+
+            return perguntas_medias[sorteado];
+        }
+        public static Pergunta getRandomPerguntaDificeis()
+        {
+            Random r = new Random();
+
+            int sorteado = r.Next(1, 20);
+
+            return perguntas_dificeis[sorteado];
+        }
+
+
+        public App()
         {
             InitializeComponent();
 
