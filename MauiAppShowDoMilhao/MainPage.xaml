@@ -32,7 +32,11 @@
 
     <StackLayout Spacing="10" Margin="10">
 
-        <Button Text="Sortear Fácil" Clicked="Button_Clicked" />
+        <Grid ColumnDefinitions="*, *, *"
+              RowDefinitions="Auto, Auto">
+
+            <Label Grid.Column="0" Text="Prêmio"/>
+        </Grid>
 
         <Label Text="{Binding Enunciado}" />
 
