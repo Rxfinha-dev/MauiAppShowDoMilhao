@@ -2,7 +2,8 @@
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        double premio = 0;
+        int pergunta_count = 0;
 
         public MainPage()
         {
@@ -58,12 +59,32 @@
             if (acertou)
             {
                 DisplayAlert("ACERTOU!", resp, "OK");
-                this.BindingContext = App.getRandomPerguntaFacil();
+                avanca_pergunta();
 
             }
             else
             {
-                DisplayAlert("ERROU!", "Você perdeu", "OK");
+                 DisplayAlert("ERROU!", "Você perdeu", "OK");
+            }
+        }
+        void avanca_pergunta()
+        {
+            if (pergunta_count <= 5)
+            {
+                premio = premio + 1000;
+                this.BindingContext = App.getRandomPerguntaFacil();
+            }
+
+            if (pergunta_count > 5 && pergunta_count <= 10)
+            {
+                premio = premio + 10000;
+                this.BindingContext = App.getRandomPerguntaMedia();
+            }
+
+            if (pergunta_count > 10 && pergunta_count < 15)
+            {
+                premio = premio + 100000;
+                this.BindingContext = App.getRandomPerguntaDificeis();
             }
         }
     }

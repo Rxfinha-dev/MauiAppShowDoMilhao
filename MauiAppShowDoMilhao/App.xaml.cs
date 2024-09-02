@@ -740,29 +740,68 @@ namespace MauiAppShowDoMilhao
 
         };
 
+        static List<Pergunta> perguntas_sorteadas = new()
+        { };
+
         public static Pergunta getRandomPerguntaFacil()
         {
             Random r = new Random();
 
-            int sorteado = r.Next(1, 20);
+            Pergunta pergunta_sorteada;
 
-            return perguntas_faceis[sorteado];
+            while (true)
+            {
+                int sorteado = r.Next(1, 21);
+                pergunta_sorteada = perguntas_faceis[sorteado];
+
+                if (!perguntas_sorteadas.Contains(pergunta_sorteada))
+                {
+                    perguntas_sorteadas.Add(pergunta_sorteada);
+                    break;
+                }
+            }
+
+            return pergunta_sorteada;
         }
         public static Pergunta getRandomPerguntaMedia()
         {
             Random r = new Random();
 
-            int sorteado = r.Next(1, 20);
+            Pergunta pergunta_sorteada;
 
-            return perguntas_medias[sorteado];
+            while (true)
+            {
+                int sorteado = r.Next(21,40);
+                pergunta_sorteada = perguntas_medias[sorteado];
+
+                if(!perguntas_sorteadas.Contains(pergunta_sorteada))
+                {
+                    perguntas_sorteadas.Add(pergunta_sorteada);
+                    break;
+                }
+            }
+
+            return pergunta_sorteada;
         }
         public static Pergunta getRandomPerguntaDificeis()
         {
             Random r = new Random();
 
-            int sorteado = r.Next(1, 20);
+            Pergunta pergunta_sorteada;
 
-            return perguntas_dificeis[sorteado];
+            while (true)
+            {
+                int sorteado = r.Next(41, 60);
+                pergunta_sorteada = perguntas_dificeis[sorteado];
+
+                if (!perguntas_sorteadas.Contains(pergunta_sorteada))
+                {
+                    perguntas_sorteadas.Add(pergunta_sorteada);
+                    break;
+                }
+            }
+
+            return pergunta_sorteada;
         }
 
 
