@@ -751,7 +751,7 @@ namespace MauiAppShowDoMilhao
 
             while (true)
             {
-                int sorteado = r.Next(1, 21);
+                int sorteado = r.Next(0, 20);
                 pergunta_sorteada = perguntas_faceis[sorteado];
 
                 if (!perguntas_sorteadas.Contains(pergunta_sorteada))
@@ -771,7 +771,7 @@ namespace MauiAppShowDoMilhao
 
             while (true)
             {
-                int sorteado = r.Next(21,40);
+                int sorteado = r.Next(0,20);
                 pergunta_sorteada = perguntas_medias[sorteado];
 
                 if(!perguntas_sorteadas.Contains(pergunta_sorteada))
@@ -791,7 +791,7 @@ namespace MauiAppShowDoMilhao
 
             while (true)
             {
-                int sorteado = r.Next(41, 60);
+                int sorteado = r.Next(0, 20);
                 pergunta_sorteada = perguntas_dificeis[sorteado];
 
                 if (!perguntas_sorteadas.Contains(pergunta_sorteada))
