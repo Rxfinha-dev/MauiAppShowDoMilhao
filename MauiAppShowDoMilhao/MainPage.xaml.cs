@@ -1,7 +1,4 @@
-﻿using Android.Media;
-using Javax.Security.Auth;
-using MauiAppShowDoMilhao.Models;
-using Microsoft.VisualBasic;
+﻿using MauiAppShowDoMilhao.Models;
 using Plugin.Maui.Audio;
 
 namespace MauiAppShowDoMilhao
@@ -14,85 +11,95 @@ namespace MauiAppShowDoMilhao
         public MainPage()
         {
             InitializeComponent();
+
             this.BindingContext = App.getRandomPerguntaFacil();
 
-
-            lbl_nivel.Text = "Fácil"; 
+            lbl_nivel.Text = "Fácil";
             lbl_premio.Text = premio.ToString("C");
             lbl_pergunta_numero.Text = pergunta_count.ToString();
 
-            Stream track =
-                FileSystem.OpenAppPackageFileAsync("abertura-show-do-milhao.mp3").Result;
+            // Adiciona Som de Abertura
+            Stream track = FileSystem.OpenAppPackageFileAsync("abertura-show-do-milhao.mp3").Result;
             AudioManager.Current.CreatePlayer(track).Play();
-            
-            private void toca_som()
+         
+        } // Fecha MainPage (método construtor)        
+
+        private void toca_som()
+        {
+            string track = "";
+
+            switch (pergunta_count)
             {
-                string track = "";
+                case 1:
+                    track = "1000.wav";
+                    break;
 
-                switch (pergunta_count) 
-                {
-                    case 1:
-                        track = "1000.wav";
-                        break;
-                    case 2:
-                        track = "2000.wav";
-                        break;
-                    case 3:
-                        track = "3000.wav";
-                        break;
-                    case 4:
-                        track = "4000.wav";
-                        break;
-                    case 5:
-                        track = "5000.wav";
-                        break;
-                    case 6:
-                        track = "10000.wav";
-                        break;
-                    case 7:
-                        track = "20000.wav";
-                        break;
-                    case 8:
-                        track = "30000.wav";
-                        break;
-                    case 9:
-                        track = "40000.wav";
-                        break;
-                    case 10:
-                        track = "50000.wav";
-                        break; 
-                    case 11:
-                        track = "100000.wav";
-                        break;
-                    case 12:
-                        track = "200000.wav";
-                        break;
-                    case 13:
-                        track = "300000.wav";
-                        break;
-                    case 14:
-                        track = "400000.wav";
-                        break;
-                    case 15:
-                        track = "500000.wav";
-                        break;
-                    case 16:
-                        track = "1000000.wav";
-                        break;
+                case 2:
+                    track = "2000.wav";
+                    break;
 
+                case 3:
+                    track = "3000.wav";
+                    break;
 
+                case 4:
+                    track = "4000.wav";
+                    break;
 
+                case 5:
+                    track = "5000.wav";
+                    break;
 
-                }
+                case 6:
+                    track = "10000.wav";
+                    break;
 
+                case 7:
+                    track = "20000.wav";
+                    break;
+
+                case 8:
+                    track = "30000.wav";
+                    break;
+
+                case 9:
+                    track = "40000.wav";
+                    break;
+
+                case 10:
+                    track = "50000.wav";
+                    break;
+
+                case 11:
+                    track = "100000a.wav";
+                    break;
+
+                case 12:
+                    track = "200000.wav";
+                    break;
+
+                case 13:
+                    track = "300000.wav";
+                    break;
+
+                case 14:
+                    track = "400000.wav";
+                    break;
+
+                case 15:
+                    track = "500000.wav";
+                    break;
+                case 16:
+                    track = "1000000.wav";
+                    break;
             }
-        
+
+            AudioManager.Current.CreatePlayer(
+                FileSystem.OpenAppPackageFileAsync(track).Result).Play();
+            
         }
 
-      
-
-        
-        private void Button_Clicked_Proxima(object sender, EventArgs e)
+        private async void Button_Clicked_Proxima(object sender, EventArgs e)
         {
             bool acertou = false;
             string resp = "";
@@ -136,25 +143,30 @@ namespace MauiAppShowDoMilhao
 
             if (acertou)
             {
-                DisplayAlert("ACERTOU!", resp, "OK");
+                Stream track = FileSystem.OpenAppPackageFileAsync("parabens.wav").Result;
+                AudioManager.Current.CreatePlayer(track).Play();
+
+                await DisplayAlert("ACERTOU!", resp, "OK");
                 pergunta_count++;
+                toca_som();
                 avanca_pergunta();
 
             }
             else
             {
-                 DisplayAlert("ERROU!", "Você perdeu", "OK");
-                this.BindingContext = App.getRandomPerguntaFacil();
-                lbl_nivel.Text = "Fácil";
-                pergunta_count= 1;
-                lbl_pergunta_numero.Text = pergunta_count.ToString();
-                premio = 1000;
-                lbl_premio.Text = premio.ToString("C");
+                Stream track = FileSystem.OpenAppPackageFileAsync("errou.wav").Result;
+                AudioManager.Current.CreatePlayer(track).Play();
 
+                await DisplayAlert("ERROU!", "Você perdeu", "OK");
+                premio = 0;
+                pergunta_count = 1;
+                avanca_pergunta();
             }
         }
+
         void avanca_pergunta()
         {
+            // Perguntas de 1.000 à 5.000
             if (pergunta_count <= 5)
             {
                 premio = premio + 1000;
@@ -162,24 +174,50 @@ namespace MauiAppShowDoMilhao
                 lbl_nivel.Text = "Fácil";
             }
 
-            if (pergunta_count > 5 && pergunta_count <= 10)
+            // Pergunta que vale R$ 10.000,00
+            if (pergunta_count == 6)
             {
+                premio = 10000;
                 this.BindingContext = App.getRandomPerguntaMedia();
-                premio = premio + 10000;
-                lbl_nivel.Text = "Médio";
-                
+                lbl_nivel.Text = "Média";
             }
 
-            if (pergunta_count > 10 && pergunta_count < 15)
+            // Perguntas de 20.000 à 50.000
+            if (pergunta_count > 6 && pergunta_count <= 10)
             {
-                this.BindingContext = App.getRandomPerguntaDificeis();
-                premio = premio + 100000;
-                lbl_nivel.Text = "Díficil";
-               
+                premio = premio + 10000;
+                this.BindingContext = App.getRandomPerguntaMedia();
+                lbl_nivel.Text = "Média";
             }
+
+            // Pergunta que vale R$ 100.000,00
+            if (pergunta_count == 11)
+            {
+                premio = 100000;
+                this.BindingContext = App.getRandomPerguntaDificeis();
+                lbl_nivel.Text = "Difícil";
+            }
+
+            // Perguntas de 200.000 à 500.000
+            if (pergunta_count > 11 && pergunta_count <= 15)
+            {
+                premio = premio + 100000;
+                this.BindingContext = App.getRandomPerguntaDificeis();
+                lbl_nivel.Text = "Dificil";
+            }
+
+            // Pergunta que vale R$ 1.000.000,00
+            if (pergunta_count == 16)
+            {
+                premio = 1000000;
+                this.BindingContext = App.getRandomPerguntaFinal();
+                lbl_nivel.Text = "FINAL";
+            }
+
             lbl_premio.Text = premio.ToString("C");
             lbl_pergunta_numero.Text = pergunta_count.ToString();
         }
-    }
 
+
+    }
 }

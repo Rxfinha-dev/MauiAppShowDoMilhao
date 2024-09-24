@@ -739,6 +739,190 @@ namespace MauiAppShowDoMilhao
             }
 
         };
+        static List<Pergunta> perguntas_finais = new () 
+        {
+                    new Pergunta
+            {
+                Id = 61,
+                Enunciado = "Quem foi o autor da Teoria da Relatividade?",
+                Alternativas = new()
+                {
+                    new Alternativa {Correta = true, Descricao = "ALBERT EINSTEIN"},
+                    new Alternativa {Correta = false, Descricao = "ISAAC NEWTON"},
+                    new Alternativa {Correta = false, Descricao = "GALILEU GALILEI"},
+                    new Alternativa {Correta = false, Descricao = "NICOLAUS COPÉRNICO"},
+                }
+            },
+            new Pergunta
+            {
+                Id = 62,
+                Enunciado = "Qual foi o primeiro país a conceder o voto às mulheres?",
+                Alternativas = new()
+                {
+                    new Alternativa {Correta = true, Descricao = "NOVA ZELÂNDIA"},
+                    new Alternativa {Correta = false, Descricao = "EUA"},
+                    new Alternativa {Correta = false, Descricao = "BRASIL"},
+                    new Alternativa {Correta = false, Descricao = "FRANÇA"},
+                }
+            },
+            new Pergunta
+            {
+                Id = 63,
+                Enunciado = "Em que ano ocorreu a Revolução Russa?",
+                Alternativas = new()
+                {
+                    new Alternativa {Correta = true, Descricao = "1917"},
+                    new Alternativa {Correta = false, Descricao = "1914"},
+                    new Alternativa {Correta = false, Descricao = "1929"},
+                    new Alternativa {Correta = false, Descricao = "1939"},
+                }
+            },
+            new Pergunta
+            {
+                Id = 64,
+                Enunciado = "Quem foi o primeiro homem a completar uma viagem ao redor do mundo?",
+                Alternativas = new()
+                {
+                    new Alternativa {Correta = true, Descricao = "FERNÃO DE MAGALHÃES"},
+                    new Alternativa {Correta = false, Descricao = "CRISTÓVÃO COLOMBO"},
+                    new Alternativa {Correta = false, Descricao = "VASCO DA GAMA"},
+                    new Alternativa {Correta = false, Descricao = "PEDRO ÁLVARES CABRAL"},
+                }
+            },
+            new Pergunta
+            {
+                Id = 65,
+                Enunciado = "Qual país é conhecido como o berço da democracia?",
+                Alternativas = new()
+                {
+                    new Alternativa {Correta = true, Descricao = "GRÉCIA"},
+                    new Alternativa {Correta = false, Descricao = "ROMA"},
+                    new Alternativa {Correta = false, Descricao = "EGITO"},
+                    new Alternativa {Correta = false, Descricao = "CHINA"},
+                }
+            },
+            new Pergunta
+            {
+                Id = 66,
+                Enunciado = "Quem pintou a Mona Lisa?",
+                Alternativas = new()
+                {
+                    new Alternativa {Correta = true, Descricao = "LEONARDO DA VINCI"},
+                    new Alternativa {Correta = false, Descricao = "MICHELANGELO"},
+                    new Alternativa {Correta = false, Descricao = "RAFAEL"},
+                    new Alternativa {Correta = false, Descricao = "DONATELLO"},
+                }
+            },
+            new Pergunta
+            {
+                Id = 67,
+                Enunciado = "Qual é a capital da Austrália?",
+                Alternativas = new()
+                {
+                    new Alternativa {Correta = true, Descricao = "CAMBERRA"},
+                    new Alternativa {Correta = false, Descricao = "SYDNEY"},
+                    new Alternativa {Correta = false, Descricao = "MELBOURNE"},
+                    new Alternativa {Correta = false, Descricao = "BRISBANE"},
+                }
+            },
+            new Pergunta
+            {
+                Id = 68,
+                Enunciado = "Qual é o maior deserto do mundo?",
+                Alternativas = new()
+                {
+                    new Alternativa {Correta = true, Descricao = "SAARA"},
+                    new Alternativa {Correta = false, Descricao = "GOBI"},
+                    new Alternativa {Correta = false, Descricao = "ATACAMA"},
+                    new Alternativa {Correta = false, Descricao = "KALAHARI"},
+                }
+            },
+            new Pergunta
+            {
+                Id = 69,
+                Enunciado = "Quem escreveu a peça 'Romeu e Julieta'?",
+                Alternativas = new()
+                {
+                    new Alternativa {Correta = true, Descricao = "WILLIAM SHAKESPEARE"},
+                    new Alternativa {Correta = false, Descricao = "GEORGE BERNARD SHAW"},
+                    new Alternativa {Correta = false, Descricao = "CHRISTOPHER MARLOWE"},
+                    new Alternativa {Correta = false, Descricao = "JOHN MILTON"},
+                }
+            },
+            new Pergunta
+            {
+                Id = 70,
+                Enunciado = "Qual é o elemento mais abundante no universo?",
+                Alternativas = new()
+                {
+                    new Alternativa {Correta = true, Descricao = "HIDROGÊNIO"},
+                    new Alternativa {Correta = false, Descricao = "OXIGÊNIO"},
+                    new Alternativa {Correta = false, Descricao = "HÉLIO"},
+                    new Alternativa {Correta = false, Descricao = "CARBONO"},
+                }
+            },
+            new Pergunta
+            {
+                Id = 71,
+                Enunciado = "Qual é o maior mamífero do mundo?",
+                Alternativas = new()
+                {
+                    new Alternativa {Correta = true, Descricao = "BALEIA AZUL"},
+                    new Alternativa {Correta = false, Descricao = "ELEFANTE AFRICANO"},
+                    new Alternativa {Correta = false, Descricao = "ORCA"},
+                    new Alternativa {Correta = false, Descricao = "RINOCERONTE"},
+                }
+            },
+            new Pergunta
+            {
+                Id = 72,
+                Enunciado = "Qual é o maior planeta do Sistema Solar?",
+                Alternativas = new()
+                {
+                    new Alternativa {Correta = true, Descricao = "JÚPITER"},
+                    new Alternativa {Correta = false, Descricao = "SATURNO"},
+                    new Alternativa {Correta = false, Descricao = "URANO"},
+                    new Alternativa {Correta = false, Descricao = "NETUNO"},
+                }
+            },
+            new Pergunta
+            {
+                Id = 73,
+                Enunciado = "Qual foi o primeiro satélite artificial lançado pela URSS?",
+                Alternativas = new()
+                {
+                    new Alternativa {Correta = true, Descricao = "SPUTNIK"},
+                    new Alternativa {Correta = false, Descricao = "LUNA"},
+                    new Alternativa {Correta = false, Descricao = "MIR"},
+                    new Alternativa {Correta = false, Descricao = "SOYUZ"},
+                }
+            },
+            new Pergunta
+            {
+                Id = 74,
+                Enunciado = "Qual filósofo grego foi professor de Alexandre, o Grande?",
+                Alternativas = new()
+                {
+                    new Alternativa {Correta = true, Descricao = "ARISTÓTELES"},
+                    new Alternativa {Correta = false, Descricao = "SÓCRATES"},
+                    new Alternativa {Correta = false, Descricao = "PLATÃO"},
+                    new Alternativa {Correta = false, Descricao = "PITÁGORAS"},
+                }
+            },
+            new Pergunta
+            {
+                Id = 75,
+                Enunciado = "Qual é o nome da maior floresta tropical do mundo?",
+                Alternativas = new()
+                {
+                    new Alternativa {Correta = true, Descricao = "AMAZÔNIA"},
+                    new Alternativa {Correta = false, Descricao = "FLORESTA NEGRA"},
+                    new Alternativa {Correta = false, Descricao = "FLORESTA DO CONGO"},
+                    new Alternativa {Correta = false, Descricao = "FLORESTA BOREAL"},
+                }
+            }
+
+        };
 
         static List<Pergunta> perguntas_sorteadas = new()
         { };
@@ -793,6 +977,26 @@ namespace MauiAppShowDoMilhao
             {
                 int sorteado = r.Next(0, 20);
                 pergunta_sorteada = perguntas_dificeis[sorteado];
+
+                if (!perguntas_sorteadas.Contains(pergunta_sorteada))
+                {
+                    perguntas_sorteadas.Add(pergunta_sorteada);
+                    break;
+                }
+            }
+
+            return pergunta_sorteada;
+        }
+        public static Pergunta getRandomPerguntaFinal()
+        {
+            Random r = new Random();
+
+            Pergunta pergunta_sorteada;
+
+            while (true)
+            {
+                int sorteado = r.Next(0, 20);
+                pergunta_sorteada = perguntas_finais[sorteado];
 
                 if (!perguntas_sorteadas.Contains(pergunta_sorteada))
                 {
