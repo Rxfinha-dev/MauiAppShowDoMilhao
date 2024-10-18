@@ -1,7 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiAppShowDoMilhao.MainPage">
+             x:Class="MauiAppShowDoMilhao.MainPage"
+             BackgroundColor="#002244">
+    <!-- Fundo azul escuro -->
 
     <ContentPage.Resources>
         <Style TargetType="RadioButton">
@@ -10,18 +11,19 @@
                     <VisualStateGroup x:Name="CheckedStates">
                         <VisualState x:Name="Checked">
                             <VisualState.Setters>
-                                <Setter Property="TextColor"
-                                        Value="LightBlue" />
-                                <Setter Property="Opacity"
-                                        Value="1" />
+                                <Setter Property="TextColor" Value="LightBlue" />
+                                <Setter Property="FontAttributes" Value="Bold"/>
+                                <Setter Property="BackgroundColor" Value="#B22222" />
+                                <!-- Vermelho ao selecionar -->
+                                <Setter Property="Opacity" Value="1" />
                             </VisualState.Setters>
                         </VisualState>
                         <VisualState x:Name="Unchecked">
                             <VisualState.Setters>
-                                <Setter Property="TextColor"
-                                        Value="White" />
-                                <Setter Property="Opacity"
-                                        Value="0.5" />
+                                <Setter Property="TextColor" Value="White" />
+                                <Setter Property="BackgroundColor" Value="#8B0000" />
+                                <!-- Vermelho escuro padrão -->
+                                <Setter Property="Opacity" Value="0.8" />
                             </VisualState.Setters>
                         </VisualState>
                     </VisualStateGroup>
@@ -30,47 +32,40 @@
         </Style>
     </ContentPage.Resources>
 
-    <StackLayout Spacing="10" Margin="10">
+    <StackLayout Spacing="20" Margin="20">
+        <!-- Layout dos prêmios e status -->
+        <Grid ColumnDefinitions="*, *, *" RowDefinitions="Auto, Auto">
+            <Label Grid.Column="0" Text="Prêmio: " FontAttributes="Bold" TextColor="White"/>
+            <Label Grid.Column="1" Text="Nível: " FontAttributes="Bold" TextColor="White"/>
+            <Label Grid.Column="2" Text="Pergunta: " FontAttributes="Bold" TextColor="White"/>
 
-        <Grid ColumnDefinitions="*, *, *"
-              RowDefinitions="Auto, Auto">
-
-            <Label Grid.Column="0" Text="Prêmio: "/>
-            <Label Grid.Column="1" Text="Nível: "/>
-            <Label Grid.Column="2" Text="Número da Pergunta: "/>
-
-            <Label Grid.Column="0" Grid.Row="1" x:Name="lbl_premio"/>
-            <Label Grid.Column="1" Grid.Row="1" x:Name="lbl_nivel"/>
-            <Label Grid.Column="2" Grid.Row="1" x:Name="lbl_pergunta_numero"/>
+            <Label Grid.Column="0" Grid.Row="1" x:Name="lbl_premio" TextColor="Yellow" />
+            <Label Grid.Column="1" Grid.Row="1" x:Name="lbl_nivel" TextColor="Yellow" />
+            <Label Grid.Column="2" Grid.Row="1" x:Name="lbl_pergunta_numero" TextColor="Yellow" />
         </Grid>
 
-        <Label Text="{Binding Enunciado}" />
+        <!-- Caixa vermelha com a pergunta -->
+        <Frame BackgroundColor="#B22222" Padding="10" CornerRadius="5">
+            <Label Text="{Binding Enunciado}" 
+                   FontAttributes="Bold" 
+                   TextColor="White" 
+                   HorizontalTextAlignment="Center"
+                   FontSize="Large"/>
+        </Frame>
 
+        <!-- Alternativas de resposta ocupando toda a extensão da tela -->
         <StackLayout>
-            <RadioButton x:Name="alt0" 
-                         Content="{Binding Path=Alternativas[0].Descricao}" 
-                         Value="{Binding Path=Alternativas[0].Correta}" />
-
-            <RadioButton x:Name="alt1" 
-                         Content="{Binding Path=Alternativas[1].Descricao}" 
-                         Value="{Binding Path=Alternativas[1].Correta}" />
-
-            <RadioButton x:Name="alt2" 
-                         Content="{Binding Path=Alternativas[2].Descricao}" 
-                         Value="{Binding Path=Alternativas[2].Correta}" />
-
-
-            <RadioButton x:Name="alt3" 
-                         Content="{Binding Path=Alternativas[3].Descricao}" 
-                         Value="{Binding Path=Alternativas[3].Correta}" />
+            <RadioButton x:Name="alt0" Content="{Binding Path=Alternativas[0].Descricao}" Value="{Binding Path=Alternativas[0].Correta}" HorizontalOptions="FillAndExpand" />
+            <RadioButton x:Name="alt1" Content="{Binding Path=Alternativas[1].Descricao}" Value="{Binding Path=Alternativas[1].Correta}" HorizontalOptions="FillAndExpand" />
+            <RadioButton x:Name="alt2" Content="{Binding Path=Alternativas[2].Descricao}" Value="{Binding Path=Alternativas[2].Correta}" HorizontalOptions="FillAndExpand" />
+            <RadioButton x:Name="alt3" Content="{Binding Path=Alternativas[3].Descricao}" Value="{Binding Path=Alternativas[3].Correta}" HorizontalOptions="FillAndExpand" />
         </StackLayout>
 
-        <StackLayout Orientation="Horizontal">
-            <Button Text="Parar" />
-            <Button Text="Próxima" Clicked="Button_Clicked_Proxima" />
+        <!-- Botões de ação -->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="20">
+            <Button Text="Parar" TextColor="White" BackgroundColor="#B22222" FontAttributes="Bold" />
+            <Button Text="Próxima" Clicked="Button_Clicked_Proxima" TextColor="White" BackgroundColor="#32CD32" FontAttributes="Bold" />
         </StackLayout>
 
     </StackLayout>
-
-
 </ContentPage>
